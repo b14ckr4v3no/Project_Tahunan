@@ -241,3 +241,24 @@ if(document.readyState === 'loading'){
 } else {
   setTimeout(revealMessage, 800);
 }
+
+// Photo fallback: use name initial if image missing
+function setupPhotoFallback(){
+  const photo = document.getElementById('userPhoto');
+  const fallback = document.getElementById('photoFallback');
+  const nameEl = document.querySelector('.name');
+  const initial = nameEl ? (nameEl.textContent.trim()[0]||'Q') : 'Q';
+  if(fallback) fallback.querySelector('span').textContent = initial.toUpperCase();
+  if(photo){
+    // if image already failed to load, ensure fallback visible
+    photo.addEventListener('error', ()=>{ if(fallback) fallback.style.display='flex'; photo.style.display='none'; });
+    // if image loads, hide fallback
+    photo.addEventListener('load', ()=>{ if(fallback) fallback.style.display='none'; photo.style.display='block'; });
+  }
+}
+
+if(document.readyState === 'loading'){
+  window.addEventListener('DOMContentLoaded', setupPhotoFallback);
+} else {
+  setupPhotoFallback();
+}

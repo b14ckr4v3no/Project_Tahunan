@@ -37,6 +37,9 @@ body{
 
 .photo-frame{width:200px;height:200px;margin:0 auto;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,0.85);box-shadow:0 8px 30px rgba(0,0,0,0.25);background:linear-gradient(180deg,#fff,#ffe);}
 .photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-frame{position:relative}
+.photo-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.08));color:#fff;font-size:4rem;font-weight:700}
+.photo-fallback span{display:inline-block}
 
 .title{font-size:2.4rem;margin:0 0 6px 0;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.5);display:flex;align-items:center;gap:10px}
 .title .name{color:var(--accent);font-weight:700}

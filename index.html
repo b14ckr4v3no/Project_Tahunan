@@ -15,7 +15,8 @@
       <div class="left">
         <!-- Slot foto -->
         <div class="photo-frame">
-          <img src="image2.jpeg" alt="Foto qiqi" onerror="this.style.display='none'">
+          <img id="userPhoto" src="image2.jpeg" alt="Foto qiqi" onerror="document.getElementById('photoFallback').style.display='flex'; this.style.display='none';">
+          <div id="photoFallback" class="photo-fallback" aria-hidden="true" style="display:none;"><span>Q</span></div>
         </div>
       </div>
 
