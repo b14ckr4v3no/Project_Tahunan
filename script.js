@@ -21,7 +21,8 @@ function randomColor(){
 
 function createConfettiPiece(x,y,force){
   const small = window.innerWidth <= 420;
-  const w = small ? (Math.random()*4 + 3) : (Math.random()*8 + 6);
+  // make mobile pieces a bit larger to be more visible on small screens
+  const w = small ? (Math.random()*6 + 4) : (Math.random()*8 + 6);
   const shape = small ? 'circle' : 'rect';
   confettiPieces.push({
     x: (typeof x === 'number') ? x : Math.random()*confettiCanvas.width,
@@ -85,13 +86,13 @@ function animate(){
 }
 animate();
 
-// Regular gentle confetti rain
-// Regular gentle confetti rain (reduced on mobile)
+// Regular confetti rain
+// Increase frequency on mobile so the effect feels lively (but keep pastel colors)
 const isSmallScreen = window.innerWidth <= 420;
 setInterval(()=>{
-  const chance = isSmallScreen ? 0.18 : 0.6;
-  if(Math.random() < chance) createConfettiPiece(isSmallScreen ? undefined : undefined);
-}, isSmallScreen ? 300 : 120);
+  const chance = isSmallScreen ? 0.5 : 0.6; // mobile now more frequent
+  if(Math.random() < chance) createConfettiPiece();
+}, isSmallScreen ? 220 : 120);
 
 // Balloons: spawn on wish or periodically
 function spawnBalloon(x){
@@ -187,8 +188,8 @@ function tryAutoplayAndCelebrate(){
 
   // initial confetti burst at center
   // smaller burst for mobile
-  const initialBurst = window.innerWidth <= 420 ? 28 : 80;
-  const initialForce = window.innerWidth <= 420 ? 3.5 : 6;
+  const initialBurst = window.innerWidth <= 420 ? 60 : 80; // larger burst on mobile
+  const initialForce = window.innerWidth <= 420 ? 4.5 : 6;
   burstConfetti(window.innerWidth/2, window.innerHeight/2, initialBurst, initialForce);
 
   // spawn several balloons across the width

@@ -90,6 +90,8 @@ body{
 /* Stronger mobile tweaks for small phones */
 @media (max-width:420px){
   body{padding:10px}
+  /* allow vertical scrolling and normal flow on small screens */
+  body{overflow:auto;display:block;align-items:initial;justify-content:initial}
   .card{width:98%;padding:14px;gap:12px}
   .photo-frame{width:140px;height:140px;border-width:5px}
   .title{font-size:1.6rem}
@@ -98,4 +100,6 @@ body{
   .cake{transform:scale(0.88);transform-origin:center}
   .card{box-shadow:none}
   #confetti{opacity:0.9}
+  /* ensure document can expand naturally */
+  html, body { height: auto; }
 }
