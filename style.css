@@ -15,7 +15,8 @@ body{
   animation: gradientBG 18s ease infinite;
   color: #222;
   min-height:100vh;
-  overflow:hidden;
+  /* allow scrolling on mobile */
+  overflow:auto;
   display:flex;align-items:center;justify-content:center;
 }
 
@@ -82,7 +83,8 @@ body{
 /* Responsive tweaks */
 @media (max-width:720px){
   .card{flex-direction:column;align-items:center}
-  .left{order:2}
+  /* put photo above content on mobile */
+  .left{order:0}
   .right{order:1;text-align:center}
   .title{justify-content:center}
 }
@@ -97,5 +99,8 @@ body{
   .message .line{font-size:0.98rem}
   .cake{transform:scale(0.88);transform-origin:center}
   .card{box-shadow:none}
-  #confetti{opacity:0.9}
+  #confetti{opacity:0.9;pointer-events:none}
+
+  /* make body content flow naturally and allow vertical scrolling */
+  html, body { height: auto; }
 }
