@@ -103,4 +103,9 @@ body{
   #confetti{opacity:0.9}
   /* ensure document can expand naturally */
   html, body { height: auto; }
+
+  /* Ensure the body is not centering content on mobile and container fills width */
+  body{display:block;padding-top:18px;padding-bottom:40px}
+  .container{padding:12px 18px; width:100%; box-sizing:border-box}
+  .card{margin-top:0}
 }
