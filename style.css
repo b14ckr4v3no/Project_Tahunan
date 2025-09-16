@@ -15,8 +15,7 @@ body{
   animation: gradientBG 18s ease infinite;
   color: #222;
   min-height:100vh;
-  /* allow scrolling on mobile */
-  overflow:auto;
+  overflow:hidden;
   display:flex;align-items:center;justify-content:center;
 }
 
@@ -26,34 +25,34 @@ body{
   width:min(980px,94%);
   margin:0 auto;
   display:flex;
-  gap:14px; /* tightened gap */
+  gap:24px;
   align-items:center;
   background: linear-gradient(180deg, var(--card-bg), rgba(255,255,255,0.04));
-  padding:16px 18px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.14);
+  padding:22px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.18);
   backdrop-filter: blur(6px);
 }
 
 .left{flex:0 0 220px}
 .right{flex:1;text-align:left;padding:8px 12px}
 
-.photo-frame{width:180px;height:180px;margin:0 auto 6px;border-radius:50%;overflow:hidden;border:5px solid rgba(255,255,255,0.9);box-shadow:0 6px 18px rgba(0,0,0,0.18);background:linear-gradient(180deg,#fff,#ffe);}
+.photo-frame{width:200px;height:200px;margin:0 auto;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,0.85);box-shadow:0 8px 30px rgba(0,0,0,0.25);background:linear-gradient(180deg,#fff,#ffe);}
 .photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-frame{position:relative}
 .photo-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.08));color:#fff;font-size:4rem;font-weight:700}
 .photo-fallback span{display:inline-block}
 
-.title{font-size:2.1rem;margin:0 0 4px 0;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.5);display:flex;align-items:center;gap:8px}
+.title{font-size:2.4rem;margin:0 0 6px 0;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.5);display:flex;align-items:center;gap:10px}
 .title .name{color:var(--accent);font-weight:700}
 .subtitle{margin:0 0 14px 0;font-size:1.05rem;color:rgba(255,255,255,0.95)}
 
 /* Message block styles */
-.message{margin-top:4px;color:#fff;font-family:'Kalam', 'Poppins', sans-serif}
-.message .subtitle{font-size:1.12rem;margin-bottom:6px;letter-spacing:0.4px}
-.message .line{opacity:0;transform:translateY(6px);transition:all 360ms cubic-bezier(.2,.9,.3,1);margin:4px 0;font-size:1.02rem;line-height:1.28}
+.message{margin-top:6px;color:#fff;font-family:'Kalam', 'Poppins', sans-serif}
+.message .subtitle{font-size:1.25rem;margin-bottom:8px;letter-spacing:0.6px}
+.message .line{opacity:0;transform:translateY(8px);transition:all 420ms cubic-bezier(.2,.9,.3,1);margin:6px 0;font-size:1.04rem}
 .message .line.show{opacity:1;transform:translateY(0)}
 .message .highlight{background:linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));padding:4px 8px;border-radius:8px;color:#fff;font-weight:700}
 .message .emoji{opacity:0.95}
-.message .signature{margin-top:8px;font-size:1.02rem;color:#fff7d9}
+.message .signature{margin-top:10px;font-size:1.06rem;color:#fff7d9}
 
 /* Tiny heart particle */
 .heart{position:fixed;width:12px;height:12px;background:transparent;transform:translate(-50%,-50%);pointer-events:none;z-index:4}
@@ -65,7 +64,7 @@ body{
 .audio-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:rgba(0,0,0,0.6);color:#fff;padding:8px 14px;border-radius:18px;z-index:6;opacity:0;transition:opacity .28s ease;font-family:'Poppins',sans-serif}
 
 
-.cake{margin:4px 0 12px 0}
+.cake{margin:6px 0 18px 0}
 .candles rect{transform-origin:center;animation:wiggle 2s infinite ease-in-out}
 @keyframes wiggle{0%{transform:translateY(0)}50%{transform:translateY(-3px)}100%{transform:translateY(0)}}
 
@@ -83,8 +82,7 @@ body{
 /* Responsive tweaks */
 @media (max-width:720px){
   .card{flex-direction:column;align-items:center}
-  /* put photo above content on mobile */
-  .left{order:0}
+  .left{order:2}
   .right{order:1;text-align:center}
   .title{justify-content:center}
 }
@@ -92,15 +90,12 @@ body{
 /* Stronger mobile tweaks for small phones */
 @media (max-width:420px){
   body{padding:10px}
-  .card{width:98%;padding:12px;gap:10px}
-  .photo-frame{width:130px;height:130px;border-width:4px}
+  .card{width:98%;padding:14px;gap:12px}
+  .photo-frame{width:140px;height:140px;border-width:5px}
   .title{font-size:1.6rem}
   .message .subtitle{font-size:1.02rem}
   .message .line{font-size:0.98rem}
   .cake{transform:scale(0.88);transform-origin:center}
   .card{box-shadow:none}
-  #confetti{opacity:0.9;pointer-events:none}
-
-  /* make body content flow naturally and allow vertical scrolling */
-  html, body { height: auto; }
+  #confetti{opacity:0.9}
 }
