@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Someone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="left">
+        <!-- Slot foto -->
+        <div class="photo-frame">
+          <img src="image2.jpeg" alt="Foto qiqi" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="right">
+        <h1 class="title">🎂 Happy Birthday, <span class="name">qiqi</span> 🎂</h1>
+        <div class="message">
+          <p class="subtitle">Selamat ulang tahun synggg 🎉🎉</p>
+          <p class="line">Semoga <span class="highlight">panjang umur</span>, <span class="highlight">sehat selalu</span>, dikasih <span class="highlight">rejeki yang melimpah</span> dan dimudahkan setiap urusan-urusannya.</p>
+          <p class="line">Kalau marah juga jangan suka <span class="highlight">cubit</span> orang ya syng <span class="emoji">huahuahua</span>.</p>
+          <p class="line">Sama <span class="highlight">rajin2 belajarnya</span>karna malas sekaliki belajar hehehe.</p>
+          <p class="line signature">Lov u syng 💖✨<br> — <em>From yg punya makassar sebagian</em></p>
+        </div>
+
+        <!-- Cake SVG -->
+        <div class="cake" aria-hidden="true">
+          <svg width="160" height="140" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+            <g>
+              <rect x="10" y="70" width="140" height="50" rx="12" fill="#fff3e0" stroke="#f6b27e" stroke-width="3"/>
+              <rect x="30" y="40" width="100" height="40" rx="10" fill="#ffdce0" stroke="#f48ca3" stroke-width="3"/>
+              <circle cx="50" cy="55" r="6" fill="#ff8a80"/>
+              <circle cx="80" cy="50" r="6" fill="#ffd54f"/>
+              <circle cx="110" cy="55" r="6" fill="#81d4fa"/>
+              <g class="candles">
+                <rect x="68" y="22" width="4" height="18" fill="#fff"/>
+                <path d="M70 22 C68 18, 72 18, 70 22 Z" fill="#ffcc80"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Controls removed: music will autoplay when possible and an initial celebration will play -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti"></canvas>
+
+  <!-- Musik: attempt muted autoplay then unmute (best-effort) -->
+  <audio id="birthdaySong" src="happy-birthday-254480.mp3" loop muted autoplay playsinline preload="auto"></audio>
+
+  <!-- small toast shown if autoplay blocked and we ask user to tap -->
+  <div id="audioToast" class="audio-toast" aria-hidden="true">Tap dimana saja untuk menyalakan audio</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
