@@ -92,6 +92,7 @@ body{
   body{padding:10px}
   /* allow vertical scrolling and normal flow on small screens */
   body{overflow:auto;display:block;align-items:initial;justify-content:initial}
+  html, body { overflow:auto; height:auto; -webkit-overflow-scrolling: touch; }
   .card{width:98%;padding:14px;gap:12px}
   .photo-frame{width:140px;height:140px;border-width:5px}
   .title{font-size:1.6rem}
